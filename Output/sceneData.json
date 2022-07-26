@@ -1,0 +1,96 @@
+{
+    "scenes": [
+        {
+            "objects": [
+                {
+                    "framePos": 0,
+                    "index": 0,
+                    "model": "table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_up",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "rel_up",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "framePos": 0,
+                    "index": 1,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": []
+                },
+                {
+                    "framePos": 0,
+                    "index": 2,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": []
+                }
+            ],
+            "imageID": 0
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 0,
+                    "index": 0,
+                    "model": "table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_up",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "rel_up",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "framePos": 0,
+                    "index": 1,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "framePos": 0,
+                    "index": 2,
+                    "model": "cat_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "imageID": 1
+        }
+    ]
+}

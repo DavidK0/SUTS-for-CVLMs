@@ -1,0 +1,27 @@
+{
+    "models": [
+        {
+            "orientability": "vertical",
+            "noun": "table",
+            "nounIndex": 0,
+            "verbs": [],
+            "adjectives": []
+        },
+        {
+            "orientability": "none",
+            "noun": "baseball",
+            "nounIndex": 0,
+            "verbs": [],
+            "adjectives": []
+        },
+        {
+            "orientability": "full",
+            "noun": "cat",
+            "nounIndex": 0,
+            "verbs": [],
+            "adjectives": [
+                "orange"
+            ]
+        }
+    ]
+}
