@@ -1,6 +1,13 @@
 {
     "models": [
         {
+            "orientability": "full",
+            "noun": "chair",
+            "nounIndex": 0,
+            "verbs": [],
+            "adjectives": []
+        },
+        {
             "orientability": "vertical",
             "noun": "table",
             "nounIndex": 0,
@@ -8,8 +15,8 @@
             "adjectives": []
         },
         {
-            "orientability": "none",
-            "noun": "baseball",
+            "orientability": "full",
+            "noun": "toaster",
             "nounIndex": 0,
             "verbs": [],
             "adjectives": []
@@ -22,6 +29,13 @@
             "adjectives": [
                 "orange"
             ]
+        },
+        {
+            "orientability": "none",
+            "noun": "baseball",
+            "nounIndex": 0,
+            "verbs": [],
+            "adjectives": []
         }
     ]
 }
