@@ -15,6 +15,12 @@
                             ]
                         },
                         {
+                            "type": "abs_up",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
                             "type": "rel_up",
                             "args": [
                                 2
