@@ -234,7 +234,8 @@ def GetDirString(arg0s, arg1s):
                     empty = False
                     break
             if empty == False:
-                dirs.remove(GetDirDir(rel))
+                if GetDirDir(rel) in dirs:
+                    dirs.remove(GetDirDir(rel))
                 break
     
     return random.choice(list(dirs))
