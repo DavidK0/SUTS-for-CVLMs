@@ -4,38 +4,68 @@
             "orientability": "full",
             "noun": "chair",
             "nounIndex": 0,
-            "verbs": [],
+            "verbs": [
+                "sit"
+            ],
             "adjectives": []
         },
         {
             "orientability": "vertical",
             "noun": "table",
             "nounIndex": 0,
-            "verbs": ["sit", "stand"],
-            "adjectives": ["wooden"]
-        },
-        {
-            "orientability": "full",
-            "noun": "toaster",
-            "nounIndex": 0,
-            "verbs": ["sit"],
-            "adjectives": ["round", "white"]
-        },
-        {
-            "orientability": "full",
-            "noun": "cat",
-            "nounIndex": 0,
-            "verbs": ["stand"],
+            "verbs": [
+                "sit",
+                "stand"
+            ],
             "adjectives": [
-                "orange"
+                "wooden"
+            ]
+        },
+        {
+            "orientability": "horizontal",
+            "noun": "knife",
+            "nounIndex": 0,
+            "verbs": [],
+            "adjectives": []
+        },
+        {
+            "orientability": "vertical",
+            "noun": "jar",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "green"
             ]
         },
         {
             "orientability": "none",
             "noun": "baseball",
             "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "white",
+                "round"
+            ]
+        },
+        {
+            "orientability": "full",
+            "noun": "toaster",
+            "nounIndex": 0,
             "verbs": [],
             "adjectives": []
+        },
+        {
+            "orientability": "full",
+            "noun": "cat",
+            "nounIndex": 0,
+            "verbs": [],
+            "adjectives": [
+                "orange"
+            ]
         }
     ]
 }
