@@ -1,0 +1,78 @@
+tags:
+  simple/arg1Rel/arg2Rel
+  x1 or x2
+    framePos/placement/orientation/size
+    absolute/relative
+    positive/negative
+
+
+Sentence{
+	relation{
+		type: framePos/placement/orientation/size
+		valence: absolute/relative
+		polarity: positive/negative
+	}
+	
+	(optional)
+	arg_relation{
+		type: framePos/placement/orientation/size
+		valence: absolute/relative
+		polarity: positive/negative
+	}
+	verb{
+		verb: ""
+		passive: yes/no
+		adverb{
+			adverb: ""
+			expected: yes/no
+		}
+	}
+	sentence_type: statement/question/command
+	+ungrammatical
+}
+
+
+What is it testing (type and valence)?
+  absolute frame position ("The cat is on the left")
+  relative frame position ("The cat is higher than the table")
+  
+  relative placement ("The cat is on the table")
+  
+  relative orientation ("The cat is parallel to the dog")
+  absolute orientation ("The cat is upside down"
+
+  relative size ("The cat is larger than the mouse")
+  absolute size? ("The cat is large")
+  
+  object classification ("The object on the 
+
+
+Noun Phrase Variants
+plain: A cat
+adjective: An orange cat
+unique: The cat
+
+basic
+adjective (expectedness, visibility)
+verb (active/passive)
+	adverb (expectedness)
+question
+command
+ungrammatical
+filler (side, percent)
+prompt (style/repeat)
+
+
+Rejected Ideas?
+specifies and object by adjective
+specifies and object by verb
+
+
+(right, from cat)
+A cat is to the left of a toaster
+A cat is further left than a toaster
+
+A toaster
+A toaster is left of a cat
+
+A toaster is to a cat's left
