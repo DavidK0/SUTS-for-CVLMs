@@ -11,21 +11,21 @@
             "orientability": "vertical",
             "noun": "table",
             "nounIndex": 0,
-            "verbs": [],
-            "adjectives": []
+            "verbs": ["sit", "stand"],
+            "adjectives": ["wooden"]
         },
         {
             "orientability": "full",
             "noun": "toaster",
             "nounIndex": 0,
-            "verbs": [],
-            "adjectives": []
+            "verbs": ["sit"],
+            "adjectives": ["round", "white"]
         },
         {
             "orientability": "full",
             "noun": "cat",
             "nounIndex": 0,
-            "verbs": [],
+            "verbs": ["stand"],
             "adjectives": [
                 "orange"
             ]

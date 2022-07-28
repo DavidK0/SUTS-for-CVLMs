@@ -79,6 +79,13 @@ class Sentence:
         #    "false" : self.falseString,
         #    "tags" : self.tags}
         #)
+    
+    # equals only compares the true strings
+    def __eq__(self, other):
+        return self.trueString == other.trueString
+    
+    def __hash__(self):
+        return self.trueString.__hash__()
 
 # returns a PP
 def getFramePosString(framePosIndex):
@@ -153,12 +160,10 @@ def GetVerbs(model):
 
 # returns true if there is only one object with the given noun in the given scene
 def IsUnique(scene, noun):
-    noun = GetNoun(scene["objects"][index])
-    
     # check if this is the object of this 'noun' type in the scene
     nameCount = 0
     for obj in scene["objects"]:
-        if GetNoun(obj) == name:
+        if GetNoun(obj) == noun:
             nameCount += 1
     assert nameCount > 0, f"Noun \"{noun}\" not found"
     return nameCount == 1
@@ -233,10 +238,12 @@ def GetDirString(arg0s, arg1s):
                 break
     
     return random.choice(list(dirs))
-                
+
 
 def AbsoluteFramePosition(scene):
-    print(f"\nimage {scene['imageID']}")
+    #print(f"\nimage {scene['imageID']}")
+    
+    sentences = set()
     
     for obj in scene["objects"]:
         #print(obj)
@@ -248,70 +255,78 @@ def AbsoluteFramePosition(scene):
         framePos = getFramePosString(obj["framePos"])
         adjectives = model["adjectives"]
         
+        if IsUnique(scene, noun):
+            art = "the"
+        else:
+            art = "a"
+        
         # Sentence patterns
         
         # Basic
         s = Sentence(["framePos", "absolute", "basic"])
-        s.SetTrueString(f"A {noun} is {framePos}.")
+        s.SetTrueString(f"{art} {noun} is {framePos}.")
         emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNoun(scene, noun)))
-        s.SetFalseString(f"A {noun} is {emptyFramePos}.")
-        print(s)
+        s.SetFalseString(f"{art} {noun} is {emptyFramePos}.")
+        sentences.add(s)
         
         # Adjectives (visible)
         for adjective in adjectives:
             s = Sentence(["framePos", "absolute", "adjective", "visible_adjective"])
-            s.SetTrueString(f"A {adjective} {noun} is {framePos}.")
+            s.SetTrueString(f"a {adjective} {noun} is {framePos}.")
             emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNounAndAdjective(scene, noun, adjective)))
-            s.SetFalseString(f"A {adjective} {noun} is {emptyFramePos}.")
-            print(s)
+            s.SetFalseString(f"a {adjective} {noun} is {emptyFramePos}.")
+            sentences.add(s)
         
         # Verb
         for verb in model["verbs"]:
             s = Sentence(["framePos", "absolute", "verb"])
-            s.SetTrueString(f"A {noun} {Present3rdSG(verb)} {framePos}")
+            s.SetTrueString(f"a {noun} {Present3rdSG(verb)} {framePos}")
             emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNounAndVerb(scene, noun, verb)))
-            s.SetFalseString(f"A {noun} {Present3rdSG(verb)} {emptyFramePos}")
-            print(s)
+            s.SetFalseString(f"a {noun} {Present3rdSG(verb)} {emptyFramePos}")
+            sentences.add(s)
             
             # Adverb (expected)
             adverb = GetAdverb(verb)
             if adverb != None:
                 s = Sentence(["framePos", "absolute", "verb", "adverb"])
-                s.SetTrueString(f"A {noun} {Present3rdSG(verb)} {adverb} {framePos}")
+                s.SetTrueString(f"a {noun} {Present3rdSG(verb)} {adverb} {framePos}")
                 emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNounAndVerb(scene, noun, verb)))
-                s.SetFalseString(f"A {noun} {Present3rdSG(verb)} {adverb} {emptyFramePos}")
-                print(s)
+                s.SetFalseString(f"a {noun} {Present3rdSG(verb)} {adverb} {emptyFramePos}")
+                sentences.add(s)
         
         # Question
         s = Sentence(["framePos", "absolute", "question"])
-        s.SetTrueString(f"Is a {noun} {framePos}?")
+        s.SetTrueString(f"Is {art} {noun} {framePos}?")
         emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNoun(scene, noun)))
-        s.SetFalseString(f"Is a {noun} {emptyFramePos}?")
-        print(s)
+        s.SetFalseString(f"Is {art} {noun} {emptyFramePos}?")
+        sentences.add(s)
         
         # Command
         s = Sentence(["framePos", "absolute", "command"])
-        s.SetTrueString(f"Put a {noun} {framePos}!")
+        s.SetTrueString(f"Put {art} {noun} {framePos}!")
         emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNoun(scene, noun)))
-        s.SetFalseString(f"Put a {noun} {emptyFramePos}!")
-        print(s)
+        s.SetFalseString(f"Put {art} {noun} {emptyFramePos}!")
+        sentences.add(s)
         
         # Ungrammatical
         s = Sentence(["framePos", "absolute", "ungrammatical"])
-        s.SetTrueString(f"Than {noun} about is a {framePos}?")
+        s.SetTrueString(f"Than {noun} about is a {framePos}.")
         emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNoun(scene, noun)))
-        s.SetFalseString(f"Than {noun} about is a {emptyFramePos}?")
-        print(s)
+        s.SetFalseString(f"Than {noun} about is a {emptyFramePos}.")
+        sentences.add(s)
         
         # Filler
         s = Sentence(["framePos", "absolute", "filler"])
-        s.SetTrueString(f"Here is a {noun} which is {framePos}.")
+        s.SetTrueString(f"Here is {art} {noun} which is {framePos}.")
         emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNoun(scene, noun)))
-        s.SetFalseString(f"Here is a {noun} which is {emptyFramePos}.")
-        print(s)
+        s.SetFalseString(f"Here is {art} {noun} which is {emptyFramePos}.")
+        sentences.add(s)
+    return sentences
 
 def RelativeFramePosition(scene):
-    print(f"\nimage {scene['imageID']}")
+    #print(f"\nimage {scene['imageID']}")
+    
+    sentences = set()
     
     for obj in scene["objects"]:
         #print(obj)
@@ -324,22 +339,30 @@ def RelativeFramePosition(scene):
         
         noun       = GetNoun(obj)
         adjectives = GetAdjectives(obj)
-        verbs      = GetVerbs(obj)
         
         direc = GetDirStringReversed(rel)
         arg1Noun = GetNoun(scene["objects"][rel["args"][0]])
         arg1Adjectives = GetAdjectives(scene["objects"][rel["args"][0]])
-        arg1Verb = GetVerbs(scene["objects"][rel["args"][0]])
+        arg1verbs = GetVerbs(scene["objects"][rel["args"][0]])
+        
+        if IsUnique(scene, noun):
+            arg0Art = "the"
+        else:
+            arg0Art = "a"
+        if IsUnique(scene, arg1Noun):
+            arg1Art = "the"
+        else:
+            arg1Art = "a"
         
         # Sentence patterns
         
         # Basic
         s = Sentence(["framePos", "absolute", "basic"])
-        s.SetTrueString(f"A {arg1Noun} is {direc} a {noun}.")
+        s.SetTrueString(f"{arg1Art} {arg1Noun} is {direc} {arg0Art} {noun}.")
         emptyFrameDir = GetDirString(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun))
         emptyFrameDir = GetDirStringReversed({"type" : f"_{emptyFrameDir}"})
-        s.SetFalseString(f"A {arg1Noun} is {emptyFrameDir} a {noun}.")
-        print(s)
+        s.SetFalseString(f"{arg1Art} {arg1Noun} is {emptyFrameDir} {arg0Art} {noun}.")
+        sentences.add(s)
         
         # Adjectives (visible)
         for adjective in adjectives:
@@ -350,64 +373,62 @@ def RelativeFramePosition(scene):
             else:
                 arg1Adjective = ""
                 emptyFrameDir = GetDirString(GetByNounAndAdjective(scene, noun, adjective), GetByNoun(scene, arg1Noun))
-            s.SetTrueString(f"A {adjective} {arg1Noun} is {direc} a {arg1Adjective}{noun}.")
+            s.SetTrueString(f"a {arg1Adjective}{arg1Noun} is {direc} a {adjective} {noun}.")
             emptyFrameDir = GetDirStringReversed({"type" : f"_{emptyFrameDir}"})
-            s.SetFalseString(f"A {adjective} {arg1Noun} is {emptyFrameDir} a {arg1Adjective}{noun}.")
-            print(s)
+            s.SetFalseString(f"a {arg1Adjective}{arg1Noun} is {emptyFrameDir} a {adjective} {noun}.")
+            sentences.add(s)
         
         # Verb
-        for verb in verbs:
+        for verb in arg1verbs:
             s = Sentence(["framePos", "absolute", "verb"])
-            s.SetTrueString(f"A {arg1Noun} {Present3rdSG(verb)} {direc} a {noun}")
-            emptyFrameDir = GetDirString(GetByNounAndVerb(scene, noun, verb), GetByNoun(scene, arg1Noun))
+            s.SetTrueString(f"a {arg1Noun} {Present3rdSG(verb)} {direc} a {noun}")
+            emptyFrameDir = GetDirString(GetByNoun(scene, noun), GetByNounAndVerb(scene, arg1Noun, verb))
             emptyFrameDir = GetDirStringReversed({"type" : f"_{emptyFrameDir}"})
-            s.SetFalseString(f"A {arg1Noun} {Present3rdSG(verb)} {emptyFrameDir} a {noun}")
-            print(s)
+            s.SetFalseString(f"a {arg1Noun} {Present3rdSG(verb)} {emptyFrameDir} a {noun}")
+            sentences.add(s)
             
             # Adverb (expected)
             adverb = GetAdverb(verb)
             if adverb != None:
                 s = Sentence(["framePos", "absolute", "verb", "adverb"])
-                s.SetTrueString(f"A {arg1Noun} {Present3rdSG(verb)} {adverb} {direc} a {noun}")
-                emptyFrameDir = GetDirString(GetByNounAndVerb(scene, noun, verb), GetByNoun(scene, arg1Noun))
+                s.SetTrueString(f"a {arg1Noun} {Present3rdSG(verb)} {adverb} {direc} a {noun}")
+                emptyFrameDir = GetDirString(GetByNoun(scene, noun), GetByNounAndVerb(scene, arg1Noun, verb))
                 emptyFrameDir = GetDirStringReversed({"type" : f"_{emptyFrameDir}"})
-                s.SetFalseString(f"A {arg1Noun} {Present3rdSG(verb)} {adverb} {emptyFrameDir} a {noun}")
-                print(s)
+                s.SetFalseString(f"a {arg1Noun} {Present3rdSG(verb)} {adverb} {emptyFrameDir} a {noun}")
+                sentences.add(s)
         
         # Question
         s = Sentence(["framePos", "absolute", "question"])
-        s.SetTrueString(f"Is a {arg1Noun} {direc} a {noun}?")
+        s.SetTrueString(f"Is {arg1Art} {arg1Noun} {direc} {arg0Art} {noun}?")
         emptyFrameDir = GetDirString(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun))
         emptyFrameDir = GetDirStringReversed({"type" : f"_{emptyFrameDir}"})
-        s.SetFalseString(f"Is a {arg1Noun} {emptyFrameDir} a {noun}?")
-        print(s)
+        s.SetFalseString(f"Is {arg1Art} {arg1Noun} {emptyFrameDir} {arg0Art} {noun}?")
+        sentences.add(s)
         
         # Command
         s = Sentence(["framePos", "absolute", "command"])
-        s.SetTrueString(f"Put a {arg1Noun} {direc} a {noun}!")
+        s.SetTrueString(f"Put {arg1Art} {arg1Noun} {direc} {arg0Art} {noun}!")
         emptyFrameDir = GetDirString(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun))
         emptyFrameDir = GetDirStringReversed({"type" : f"_{emptyFrameDir}"})
-        s.SetFalseString(f"Put a {arg1Noun} {emptyFrameDir} a {noun}!")
-        print(s)
-        return
+        s.SetFalseString(f"Put {arg1Art} {arg1Noun} {emptyFrameDir} {arg0Art} {noun}!")
+        sentences.add(s)
         
         # Ungrammatical
         s = Sentence(["framePos", "absolute", "ungrammatical"])
-        s.SetTrueString(f"Than {arg1Noun} about is a {framePos}?")
+        s.SetTrueString(f"Than {arg1Noun} about is {direc} so {noun}.")
         emptyFrameDir = GetDirString(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun))
         emptyFrameDir = GetDirStringReversed({"type" : f"_{emptyFrameDir}"})
-        s.SetFalseString(f"Than {arg1Noun} about is a {emptyFramePos}?")
-        print(s)
+        s.SetFalseString(f"Than {arg1Noun} about is {emptyFrameDir} so {noun}.")
+        sentences.add(s)
         
         # Filler
         s = Sentence(["framePos", "absolute", "filler"])
-        s.SetTrueString(f"Here is a {arg1Noun} which is {framePos}.")
+        s.SetTrueString(f"Here is {arg1Art} {arg1Noun} which is {direc} a {noun}.")
         emptyFrameDir = GetDirString(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun))
         emptyFrameDir = GetDirStringReversed({"type" : f"_{emptyFrameDir}"})
-        s.SetFalseString(f"Here is a {noun} which is {emptyFramePos}.")
-        print(s)
-        
-        print()
+        s.SetFalseString(f"Here is {arg1Art} {noun} which is {emptyFrameDir} {arg0Art} {noun}.")
+        sentences.add(s)
+    return sentences
 
 def other():
     for obj in scene["objects"]:
@@ -442,7 +463,11 @@ for scene in scenesData:
     
     #sys.stdout = open('framePos.txt', 'a')
     
-    AbsoluteFramePosition(scene)
-    #RelativeFramePosition(scene)
+    for s in AbsoluteFramePosition(scene):
+        print(s)
+    print()
+    for s in RelativeFramePosition(scene):
+        print(s)
+    break
     
     #sys.stdout = sys.__stdout__
