@@ -1,0 +1,86 @@
+{
+    "models": [
+        {
+            "orientability": "full",
+            "noun": "chair",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [],
+            "adverbs": []
+        },
+        {
+            "orientability": "vertical",
+            "noun": "table",
+            "nounIndex": 0,
+            "verbs": [
+                "sit",
+                "stand"
+            ],
+            "adjectives": [
+                "wooden"
+            ],
+            "adverbs": []
+        },
+        {
+            "orientability": "full",
+            "noun": "toaster",
+            "nounIndex": 0,
+            "verbs": [],
+            "adjectives": [],
+            "adverbs": []
+        },
+        {
+            "orientability": "vertical",
+            "noun": "jar",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "green"
+            ],
+            "adverbs": []
+        },
+        {
+            "orientability": "horizontal",
+            "noun": "knife",
+            "nounIndex": 0,
+            "verbs": [],
+            "adjectives": [],
+            "adverbs": []
+        },
+        {
+            "orientability": "none",
+            "noun": "baseball",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "white",
+                "round"
+            ],
+            "adverbs": []
+        },
+        {
+            "orientability": "full",
+            "noun": "cat",
+            "nounIndex": 0,
+            "verbs": [],
+            "adjectives": [
+                "orange"
+            ],
+            "adverbs": [
+                "calmly",
+                "stoically",
+                "still",
+                "patiently",
+                "waiting",
+                "expectingly",
+                "ready"
+            ]
+        }
+    ]
+}
