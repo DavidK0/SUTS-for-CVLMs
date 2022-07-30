@@ -36,7 +36,7 @@ What is it testing (type and valence)?
   absolute frame position ("The cat is on the left")
   relative frame position ("The cat is higher than the table")
   
-  relative placement ("The cat is on the table")
+  relative placement ("The cat is on the table", "facing")
   
   relative orientation ("The cat is parallel to the dog")
   absolute orientation ("The cat is upside down"
@@ -72,7 +72,10 @@ specifies and object by verb
 A cat is to the left of a toaster
 A cat is further left than a toaster
 
-A toaster
-A toaster is left of a cat
+A toaster is to the left of a cat.
+A toaster is to a cat's left.
 
-A toaster is to a cat's left
+UNITY NOTES
+change 'front' to 'forward'
+add adverbs
+orientation
