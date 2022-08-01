@@ -122,25 +122,6 @@ def getFramePosString(framePosIndex):
         return "at the bottom right"
     else:
         assert False, f"Unknown frame position index \"{framePosIndex}\""
-    
-## returns a tuple
-## used in something like "the cat's left
-#def GetPossesiveRelString(rel):
-#    if GetRelType(rel) == "abs":
-#        assert False, "Relative relation expected"
-#    direc = GetRelDir(rel)
-#    if direc == "up":
-#        return "above"
-#    elif direc == "down":
-#        return "under"
-#    elif direc == "left":
-#        return "to the left of"
-#    elif direc == "right":
-#        return "to the right of"
-#    elif direc == "forward":
-#        return "in front of"
-#    elif direc == "back":
-#        return "behind"
 
 # returns a P
 def GetRelString(rel):
@@ -159,20 +140,6 @@ def GetRelString(rel):
         return "behind"
     else:
         assert False, f"Invalid relations {rel}, {direc}"
-
-# returns a P
-#def GetRelPlacementString(rel):
-#    direc = GetRelDir(rel)
-#    if direc == "left":
-#        return "to the left of"
-#    elif direc == "right":
-#        return "to the right of"
-#    elif direc == "forward":
-#        return "facing"
-#    elif direc == "back":
-#        return "facing away from"
-#    else:
-#        assert False, f"Invalid relations {rel}, {direc}"
 
 # returns 'abs' or 'rel'
 def GetRelType(relation):
@@ -258,10 +225,12 @@ def GetByNounAndVerb(scene, noun, verb):
 
 # returns a random frame position from the list of frame positions
 #   which do not contain any of the given objects
-def GetEmptyFramePosition(scene, objects):
+def GetEmptyFramePosition(objects):
     positions = set([1,2,3,4,5,6,7,8,9])
     for i in range(1,10):
         for obj in objects:
+            if obj["framePos"] == 0:
+                continue
             if obj["framePos"] == i:
                 positions.remove(i)
                 break
@@ -278,10 +247,14 @@ def GetEmptyDir(arg0s, arg1s, excludeVertical=False):
     else:
         dirs = set(["up", "down", "left", "right", "forward", "back"])
     for obj1 in arg0s:
+        if obj1["framePos"] == 0:
+            continue
         for rel in obj1["relations"]:
             index1 = rel["args"][0]
             empty = True
             for obj2 in arg1s:
+                if obj2["framePos"] == 0:
+                    continue
                 index2 = obj2["index"]
                 if index1 == index2:
                     empty = False
@@ -293,6 +266,22 @@ def GetEmptyDir(arg0s, arg1s, excludeVertical=False):
     
     return random.choice(list(dirs))
 
+def GetOrientationString(orientation):
+    if orientation == "normal":
+        return "rightside-up"
+    elif orientation == "sideways":
+        return "sideways"
+    elif orientation == "upsidedown":
+        return "upside-down"
+    else:
+        assert False, f"Invalid orientation {orientation}"
+
+def GetEmptyOrientation(objects):
+    orientations = set(["normal","sideways","upsidedown"])
+    for obj in objects:
+        if obj["orientation"] in orientations:
+            orientations.remove(obj["orientation"])
+    return random.choice(list(orientations))
 
 def AbsoluteFramePosition(scene):
     #print(f"\nimage {scene['imageID']}")
@@ -300,6 +289,8 @@ def AbsoluteFramePosition(scene):
     sentences = set()
     
     for obj in scene["objects"]:
+        if obj["framePos"] == 0:
+            continue
         #print(obj)
         
         # infromation about the object
@@ -311,89 +302,91 @@ def AbsoluteFramePosition(scene):
         
         if IsUnique(scene, noun):
             art = "the"
+            artTag = "definite"
         else:
             art = "a"
+            artTag = "indefinite"
         
         # Sentence patterns
         
         # Basic
-        s = Sentence(["abs_frame_pos", "basic"])
+        s = Sentence(["abs_frame_pos", "basic", artTag])
         s.SetTrueString(f"{art} {noun} is {framePos}.")
-        emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNoun(scene, noun)))
+        emptyFramePos = getFramePosString(GetEmptyFramePosition(GetByNoun(scene, noun)))
         s.SetFalseString(f"{art} {noun} is {emptyFramePos}.")
         sentences.add(s)
         
         # Adjectives (visible)
         for adjective in adjectives:
-            s = Sentence(["abs_frame_pos", "adjective", "visible_adjective"])
+            s = Sentence(["abs_frame_pos", "adjective", "visible_adjective", artTag])
             s.SetTrueString(f"a {adjective} {noun} is {framePos}.")
-            emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNounAndAdjective(scene, noun, adjective)))
+            emptyFramePos = getFramePosString(GetEmptyFramePosition(GetByNounAndAdjective(scene, noun, adjective)))
             s.SetFalseString(f"a {adjective} {noun} is {emptyFramePos}.")
             sentences.add(s)
         
         # Verb
         for verb in model["verbs"]:
-            s = Sentence(["abs_frame_pos", "verb"])
+            s = Sentence(["abs_frame_pos", "verb", artTag])
             s.SetTrueString(f"a {noun} {Present3rdSG(verb)} {framePos}")
-            emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNounAndVerb(scene, noun, verb)))
+            emptyFramePos = getFramePosString(GetEmptyFramePosition(GetByNounAndVerb(scene, noun, verb)))
             s.SetFalseString(f"a {noun} {Present3rdSG(verb)} {emptyFramePos}")
             sentences.add(s)
             
             # Adverb (expected)
             adverb = GetAdverb(verb)
             if adverb != None:
-                s = Sentence(["abs_frame_pos", "verb", "adverb"])
+                s = Sentence(["abs_frame_pos", "verb", "adverb", artTag])
                 s.SetTrueString(f"a {noun} {Present3rdSG(verb)} {adverb} {framePos}")
-                emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNounAndVerb(scene, noun, verb)))
+                emptyFramePos = getFramePosString(GetEmptyFramePosition(GetByNounAndVerb(scene, noun, verb)))
                 s.SetFalseString(f"a {noun} {Present3rdSG(verb)} {adverb} {emptyFramePos}")
                 sentences.add(s)
         
         # Question
-        s = Sentence(["abs_frame_pos", "question"])
+        s = Sentence(["abs_frame_pos", "question", artTag])
         s.SetTrueString(f"is {art} {noun} {framePos}?")
-        emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNoun(scene, noun)))
+        emptyFramePos = getFramePosString(GetEmptyFramePosition(GetByNoun(scene, noun)))
         s.SetFalseString(f"is {art} {noun} {emptyFramePos}?")
         sentences.add(s)
         
         # Command
-        s = Sentence(["abs_frame_pos", "command"])
+        s = Sentence(["abs_frame_pos", "command", artTag])
         s.SetTrueString(f"put {art} {noun} {framePos}!")
-        emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNoun(scene, noun)))
+        emptyFramePos = getFramePosString(GetEmptyFramePosition(GetByNoun(scene, noun)))
         s.SetFalseString(f"put {art} {noun} {emptyFramePos}!")
         sentences.add(s)
         
         # Ungrammatical
-        s = Sentence(["abs_frame_pos", "ungrammatical"])
+        s = Sentence(["abs_frame_pos", "ungrammatical", artTag])
         s.SetTrueString(f"than {noun} about is a {framePos}.")
-        emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNoun(scene, noun)))
+        emptyFramePos = getFramePosString(GetEmptyFramePosition(GetByNoun(scene, noun)))
         s.SetFalseString(f"than {noun} about is a {emptyFramePos}.")
         sentences.add(s)
         
         # Filler
-        s = Sentence(["abs_frame_pos", "filler"])
+        s = Sentence(["abs_frame_pos", "filler", artTag])
         s.SetTrueString(f"here is {art} {noun} which is {framePos}.")
-        emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNoun(scene, noun)))
+        emptyFramePos = getFramePosString(GetEmptyFramePosition(GetByNoun(scene, noun)))
         s.SetFalseString(f"here is {art} {noun} which is {emptyFramePos}.")
         sentences.add(s)
         
         # Prompt-engineer: style_render
-        s = Sentence(["abs_frame_pos", "style_render"])
+        s = Sentence(["abs_frame_pos", "style_render", artTag])
         s.SetTrueString(f"a 3D render of a {noun} is {framePos}.")
-        emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNoun(scene, noun)))
+        emptyFramePos = getFramePosString(GetEmptyFramePosition(GetByNoun(scene, noun)))
         s.SetFalseString(f"a 3D render of a {noun} is {emptyFramePos}.")
         sentences.add(s)
         
         # Prompt-engineer: style_picture
-        s = Sentence(["abs_frame_pos", "style_picture"])
+        s = Sentence(["abs_frame_pos", "style_picture", artTag])
         s.SetTrueString(f"{art} {noun} is {framePos} of this picture.")
-        emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNoun(scene, noun)))
+        emptyFramePos = getFramePosString(GetEmptyFramePosition(GetByNoun(scene, noun)))
         s.SetFalseString(f"{art} {noun} is {emptyFramePos} of this picture.")
         sentences.add(s)
         
         # Prompt-engineer: repeat
-        s = Sentence(["abs_frame_pos", "repeat"])
+        s = Sentence(["abs_frame_pos", "repeat", artTag])
         s.SetTrueString(f"{art} {noun} is {framePos}. {framePos} is {art} {noun}.")
-        emptyFramePos = getFramePosString(GetEmptyFramePosition(scene, GetByNoun(scene, noun)))
+        emptyFramePos = getFramePosString(GetEmptyFramePosition(GetByNoun(scene, noun)))
         s.SetFalseString(f"{art} {noun} is {emptyFramePos}. {emptyFramePos} is {art} {noun}.")
         sentences.add(s)
     return sentences
@@ -404,6 +397,8 @@ def RelativeFramePosition(scene):
     sentences = set()
     
     for obj in scene["objects"]:
+        if obj["framePos"] == 0:
+            continue
         #print(obj)
         for rel in obj["relations"]:
             if GetRelType(rel) != "abs":
@@ -422,17 +417,21 @@ def RelativeFramePosition(scene):
             
             if IsUnique(scene, noun):
                 arg0Art = "the"
+                artTag = "definite"
             else:
                 arg0Art = "a"
+                artTag = "indefinite"
             if IsUnique(scene, arg1Noun):
                 arg1Art = "the"
             else:
                 arg1Art = "a"
+            if arg1Art != arg0Art:
+                artTag = "mixed"
             
             # Sentence patterns
             
             # Basic 1
-            s = Sentence(["rel_frame_pos", "basic1"])
+            s = Sentence(["rel_frame_pos", "basic1", artTag])
             s.SetTrueString(f"{arg1Art} {arg1Noun} is {direc} {arg0Art} {noun}.")
             emptyFrameDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun))
             emptyFrameDir = GetRelString({"type" : f"_{emptyFrameDir}"})
@@ -440,7 +439,7 @@ def RelativeFramePosition(scene):
             sentences.add(s)
             
             # Basic 2
-            s = Sentence(["rel_frame_pos", "basic2"])
+            s = Sentence(["rel_frame_pos", "basic2", artTag])
             dirRaw = rel['type'].split("_")[1]
             s.SetTrueString(f"{arg1Art} {arg1Noun} is further {dirRaw} than {arg0Art} {noun}.")
             emptyFrameDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun))
@@ -449,7 +448,7 @@ def RelativeFramePosition(scene):
             
             # Adjectives (visible)
             for adjective in adjectives:
-                s = Sentence(["rel_frame_pos", "adjective", "visible_adjective"])
+                s = Sentence(["rel_frame_pos", "adjective", "visible_adjective", artTag])
                 if len(arg1Adjectives) > 0:
                     arg1Adjective = arg1Adjectives[0] + " "
                     emptyFrameDir = GetEmptyDir(GetByNounAndAdjective(scene, noun, adjective), GetByNounAndAdjective(scene, arg1Noun, arg1Adjectives[0]))
@@ -463,7 +462,7 @@ def RelativeFramePosition(scene):
             
             # Verb
             for verb in arg1verbs:
-                s = Sentence(["rel_frame_pos", "verb"])
+                s = Sentence(["rel_frame_pos", "verb", artTag])
                 s.SetTrueString(f"a {arg1Noun} {Present3rdSG(verb)} {direc} a {noun}")
                 emptyFrameDir = GetEmptyDir(GetByNoun(scene, noun), GetByNounAndVerb(scene, arg1Noun, verb))
                 emptyFrameDir = GetRelString({"type" : f"_{emptyFrameDir}"})
@@ -473,7 +472,7 @@ def RelativeFramePosition(scene):
                 # Adverb (expected)
                 adverb = GetAdverb(verb)
                 if adverb != None:
-                    s = Sentence(["rel_frame_pos", "verb", "adverb"])
+                    s = Sentence(["rel_frame_pos", "verb", "adverb", artTag])
                     s.SetTrueString(f"a {arg1Noun} {Present3rdSG(verb)} {adverb} {direc} a {noun}")
                     emptyFrameDir = GetEmptyDir(GetByNoun(scene, noun), GetByNounAndVerb(scene, arg1Noun, verb))
                     emptyFrameDir = GetRelString({"type" : f"_{emptyFrameDir}"})
@@ -481,7 +480,7 @@ def RelativeFramePosition(scene):
                     sentences.add(s)
             
             # Question
-            s = Sentence(["rel_frame_pos", "question"])
+            s = Sentence(["rel_frame_pos", "question", artTag])
             s.SetTrueString(f"is {arg1Art} {arg1Noun} {direc} {arg0Art} {noun}?")
             emptyFrameDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun))
             emptyFrameDir = GetRelString({"type" : f"_{emptyFrameDir}"})
@@ -489,7 +488,7 @@ def RelativeFramePosition(scene):
             sentences.add(s)
             
             # Command
-            s = Sentence(["rel_frame_pos", "command"])
+            s = Sentence(["rel_frame_pos", "command", artTag])
             s.SetTrueString(f"put {arg1Art} {arg1Noun} {direc} {arg0Art} {noun}!")
             emptyFrameDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun))
             emptyFrameDir = GetRelString({"type" : f"_{emptyFrameDir}"})
@@ -497,7 +496,7 @@ def RelativeFramePosition(scene):
             sentences.add(s)
             
             # Ungrammatical
-            s = Sentence(["rel_frame_pos", "ungrammatical"])
+            s = Sentence(["rel_frame_pos", "ungrammatical", artTag])
             s.SetTrueString(f"than {arg1Noun} about is {direc} so {noun}.")
             emptyFrameDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun))
             emptyFrameDir = GetRelString({"type" : f"_{emptyFrameDir}"})
@@ -505,7 +504,7 @@ def RelativeFramePosition(scene):
             sentences.add(s)
             
             # Filler
-            s = Sentence(["rel_frame_pos", "filler"])
+            s = Sentence(["rel_frame_pos", "filler", artTag])
             s.SetTrueString(f"here is {arg1Art} {arg1Noun} which is {direc} a {noun}.")
             emptyFrameDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun))
             emptyFrameDir = GetRelString({"type" : f"_{emptyFrameDir}"})
@@ -513,7 +512,7 @@ def RelativeFramePosition(scene):
             sentences.add(s)
         
             # Prompt-engineer: style_render
-            s = Sentence(["rel_frame_pos", "style_render"])
+            s = Sentence(["rel_frame_pos", "style_render", artTag])
             s.SetTrueString(f"a 3D render of a {arg1Noun} {direc} a {noun}.")
             emptyFrameDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun))
             emptyFrameDir = GetRelString({"type" : f"_{emptyFrameDir}"})
@@ -521,7 +520,7 @@ def RelativeFramePosition(scene):
             sentences.add(s)
             
             # Prompt-engineer: style_picture
-            s = Sentence(["rel_frame_pos", "style_picture"])
+            s = Sentence(["rel_frame_pos", "style_picture", artTag])
             s.SetTrueString(f"in this picture, {arg1Art} {arg1Noun} is {direc} {arg0Art} {noun}.")
             emptyFrameDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun))
             emptyFrameDir = GetRelString({"type" : f"_{emptyFrameDir}"})
@@ -529,7 +528,7 @@ def RelativeFramePosition(scene):
             sentences.add(s)
             
             # Prompt-engineer: repeat
-            s = Sentence(["rel_frame_pos", "repeat"])
+            s = Sentence(["rel_frame_pos", "repeat", artTag])
             s.SetTrueString(f"{arg1Art} {arg1Noun} is {direc} {arg0Art} {noun}. {arg1Art} {arg1Noun} {direc} {arg0Art} {noun}.")
             emptyFrameDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun))
             emptyFrameDir = GetRelString({"type" : f"_{emptyFrameDir}"})
@@ -572,6 +571,8 @@ def RelativePlacement(scene):
     sentences = set()
     
     for obj in scene["objects"]:
+        if obj["framePos"] == 0:
+            continue
         #print(obj)
         for rel in obj["relations"]:
             dirRaw = GetRelDir(rel)
@@ -609,17 +610,21 @@ def RelativePlacement(scene):
             
             if IsUnique(scene, noun):
                 arg0Art = "the"
+                artTag = "definite"
             else:
                 arg0Art = "a"
+                artTag = "indefinite"
             if IsUnique(scene, arg1Noun):
                 arg1Art = "the"
             else:
                 arg1Art = "a"
+            if arg1Art != arg0Art:
+                artTag = "mixed"
             
             # Sentence patterns
             
             # Basic 1
-            s = Sentence(["placement", "basic1"])
+            s = Sentence(["placement", "basic1", artTag])
             true = GetRelativePlacementString(noun0=noun,art0=arg0Art,noun1=arg1Noun,art1=arg1Art,rel=rel)
             s.SetTrueString(true + ".")
             emptyDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun), True)
@@ -628,7 +633,7 @@ def RelativePlacement(scene):
             sentences.add(s)
             
             # Basic 2
-            s = Sentence(["placement", "basic2"])
+            s = Sentence(["placement", "basic2", artTag])
             s.SetTrueString(f"{arg1Art} {arg1Noun} is {GetRelString(rel)} {arg0Art} {noun}.")
             emptyDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun))
             emptyDir = GetRelString({"type" : f"_{emptyDir}"})
@@ -637,7 +642,7 @@ def RelativePlacement(scene):
             
             # Adjectives (visible)
             for adjective in adjectives:
-                s = Sentence(["placement", "adjective", "visible_adjective"])
+                s = Sentence(["placement", "adjective", "visible_adjective", artTag])
                 if len(arg1Adjectives) > 0:
                     arg1Adjective = arg1Adjectives[0]
                     emptyDir = GetEmptyDir(GetByNounAndAdjective(scene, noun, adjective), GetByNounAndAdjective(scene, arg1Noun, arg1Adjectives[0]), True)
@@ -655,7 +660,7 @@ def RelativePlacement(scene):
             if len(arg0verbs) == 0:
                 arg0verbs.append("is")
             for verb1 in arg1verbs:
-                s = Sentence(["placement", "verb"])
+                s = Sentence(["placement", "verb", artTag])
                 true = GetRelativePlacementString(noun0=noun,art0=arg0Art,noun1=arg1Noun,art1=arg1Art,rel=rel,verb1=verb1,verb0=arg0verbs[0])
                 s.SetTrueString(true + ".")
                 emptyDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun), True)
@@ -668,7 +673,7 @@ def RelativePlacement(scene):
                 
                 adverb1 = GetAdverb(verb1)
                 if adverb1 != None:
-                    s = Sentence(["placement", "verb", "adverb"])
+                    s = Sentence(["placement", "verb", "adverb", artTag])
                     true = GetRelativePlacementString(noun0=noun,art0=arg0Art,noun1=arg1Noun,art1=arg1Art,rel=rel,verb1=verb1,verb0=arg0verbs[0],adverb1=adverb1,adverb0=adverb0)
                     s.SetTrueString(true + ".")
                     emptyDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun), True)
@@ -677,7 +682,7 @@ def RelativePlacement(scene):
                     sentences.add(s)
             
             # Question
-            s = Sentence(["placement", "question"])
+            s = Sentence(["placement", "question", artTag])
             true = GetRelativePlacementString(noun0=noun,art0=arg0Art,noun1=arg1Noun,art1=arg1Art,rel=rel,verb0="",verb1="")
             s.SetTrueString("is " + true + "?")
             emptyDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun), True)
@@ -686,7 +691,7 @@ def RelativePlacement(scene):
             sentences.add(s)
             
             # Command
-            s = Sentence(["placement", "command"])
+            s = Sentence(["placement", "command", artTag])
             true = GetRelativePlacementString(noun0=noun,art0=arg0Art,noun1=arg1Noun,art1=arg1Art,rel=rel,verb0="",verb1="")
             s.SetTrueString("put " + true + "!")
             emptyDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun), True)
@@ -695,7 +700,7 @@ def RelativePlacement(scene):
             sentences.add(s)
             
             # Ungrammatical
-            s = Sentence(["placement", "ungrammatical"])
+            s = Sentence(["placement", "ungrammatical", artTag])
             true = GetRelativePlacementString(noun0=arg1Art,art0=noun,noun1=arg0Art,art1=arg1Noun,rel=rel)
             s.SetTrueString(true + ".")
             emptyDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun), True)
@@ -704,7 +709,7 @@ def RelativePlacement(scene):
             sentences.add(s)
             
             # Filler
-            s = Sentence(["placement", "filler"])
+            s = Sentence(["placement", "filler", artTag])
             true = GetRelativePlacementString(noun0=noun,art0=arg0Art,noun1=arg1Noun,art1=arg1Art,rel=rel,verb0="which i",verb1="which i")
             s.SetTrueString("here is " + true + ".")
             emptyDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun), True)
@@ -713,7 +718,7 @@ def RelativePlacement(scene):
             sentences.add(s)
         
             # Prompt-engineer: style_render
-            s = Sentence(["placement", "style_render"])
+            s = Sentence(["placement", "style_render", artTag])
             true = GetRelativePlacementString(noun0=noun,art0=arg0Art,noun1=arg1Noun,art1=arg1Art,rel=rel)
             s.SetTrueString("In this 3D render, " + true + ".")
             emptyDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun), True)
@@ -722,7 +727,7 @@ def RelativePlacement(scene):
             sentences.add(s)
             
             # Prompt-engineer: style_picture
-            s = Sentence(["placement", "style_picture"])
+            s = Sentence(["placement", "style_picture", artTag])
             true = GetRelativePlacementString(noun0=noun,art0=arg0Art,noun1=arg1Noun,art1=arg1Art,rel=rel)
             s.SetTrueString("In this picture, " + true + ".")
             emptyDir = GetEmptyDir(GetByNoun(scene, noun), GetByNoun(scene, arg1Noun), True)
@@ -731,7 +736,7 @@ def RelativePlacement(scene):
             sentences.add(s)
             
             # Prompt-engineer: repeat
-            s = Sentence(["placement", "repeat"])
+            s = Sentence(["placement", "repeat", artTag])
             true1 = GetRelativePlacementString(noun0=noun,art0=arg0Art,noun1=arg1Noun,art1=arg1Art,rel=rel)
             true2 = GetRelativePlacementString(noun0=noun,art0=arg0Art,noun1=arg1Noun,art1=arg1Art,rel=rel,verb0="",verb1="")
             s.SetTrueString(true1 + ". " + true2 + ".")
@@ -742,12 +747,136 @@ def RelativePlacement(scene):
             sentences.add(s)
     return sentences
 
+def Orientation(scene):
+    #print(f"\nimage {scene['imageID']}")
+    
+    sentences = set()
+    
+    for obj in scene["objects"]:
+        if obj["framePos"] == 0:
+            continue
+        # maybe skip normally oriented things
+        if obj["orientation"] == "normal":
+            if random.random() > .035:
+                continue
+        #print(obj)
+        
+        # infromation about the object
+        model = models[obj["model"]]
+        noun = GetNoun(obj)
+
+        framePos = getFramePosString(obj["framePos"])
+        adjectives = model["adjectives"]
+        
+        orientation = GetOrientationString(obj["orientation"])
+
+        
+        if IsUnique(scene, noun):
+            art = "the"
+            artTag = "definite"
+        else:
+            art = "a"
+            artTag = "indefinite"
+        
+        # Sentence patterns
+        
+        # Basic 1
+        s = Sentence(["orientation", "basic1", artTag])
+        s.SetTrueString(f"{art} {noun} is {orientation}.")
+        emptyOrientation = GetOrientationString(GetEmptyOrientation(GetByNoun(scene,noun)))
+        s.SetFalseString(f"{art} {noun} is {emptyOrientation}.")
+        sentences.add(s)
+        
+        # Basic 2
+        s = Sentence(["orientation", "basic2", artTag])
+        s.SetTrueString(f"{art} {orientation} {noun}.")
+        emptyOrientation = GetOrientationString(GetEmptyOrientation(GetByNoun(scene,noun)))
+        s.SetFalseString(f"{art} {emptyOrientation}.")
+        sentences.add(s)
+        
+        # Adjectives (visible)
+        for adjective in adjectives:
+            s = Sentence(["orientation", "adjective", artTag])
+            s.SetTrueString(f"{art} {adjective} {noun} is {orientation}.")
+            emptyOrientation = GetOrientationString(GetEmptyOrientation(GetByNoun(scene,noun)))
+            s.SetFalseString(f"{art} {adjective} {noun} is {emptyOrientation}.")
+            sentences.add(s)
+        
+        # Verb
+        for verb in model["verbs"]:
+            s = Sentence(["orientation", "verb", artTag])
+            s.SetTrueString(f"{art} {noun} {Present3rdSG(verb)} {orientation}.")
+            emptyOrientation = GetOrientationString(GetEmptyOrientation(GetByNoun(scene,noun)))
+            s.SetFalseString(f"{art} {noun} {Present3rdSG(verb)} {emptyOrientation}.")
+            sentences.add(s)
+            
+            # Adverb (expected)
+            adverb = GetAdverb(verb)
+            if adverb != None:
+                s = Sentence(["orientation", "verb", "adverb", artTag])
+                s.SetTrueString(f"{art} {noun} {Present3rdSG(verb)} {adverb} {orientation}.")
+                emptyOrientation = GetOrientationString(GetEmptyOrientation(GetByNoun(scene,noun)))
+                s.SetFalseString(f"{art} {noun} {Present3rdSG(verb)} {adverb} {emptyOrientation}.")
+                sentences.add(s)
+        
+        # Question
+        s = Sentence(["orientation", "question", artTag])
+        s.SetTrueString(f"is {art} {noun} {orientation}?")
+        emptyOrientation = GetOrientationString(GetEmptyOrientation(GetByNoun(scene,noun)))
+        s.SetFalseString(f"is {art} {noun} {emptyOrientation}?")
+        sentences.add(s)
+        
+        # Command
+        s = Sentence(["orientation", "command", artTag])
+        s.SetTrueString(f"put {art} {noun} {orientation}!")
+        emptyOrientation = GetOrientationString(GetEmptyOrientation(GetByNoun(scene,noun)))
+        s.SetFalseString(f"put {art} {noun} {emptyOrientation}!")
+        sentences.add(s)
+        
+        # Ungrammatical
+        s = Sentence(["orientation", "ungrammatical", artTag])
+        s.SetTrueString(f"than {art} about {noun} is a {orientation}.")
+        emptyOrientation = GetOrientationString(GetEmptyOrientation(GetByNoun(scene,noun)))
+        s.SetFalseString(f"than {art} about {noun} is a {emptyOrientation}.")
+        sentences.add(s)
+        
+        # Filler
+        s = Sentence(["orientation", "filler", artTag])
+        s.SetTrueString(f"here is {art} {noun} which is {orientation}.")
+        emptyOrientation = GetOrientationString(GetEmptyOrientation(GetByNoun(scene,noun)))
+        s.SetFalseString(f"here is {art} {noun} which is {emptyOrientation}.")
+        sentences.add(s)
+        
+        # Prompt-engineer: style_render
+        s = Sentence(["orientation", "style_render", artTag])
+        s.SetTrueString(f"a 3D render of {art} {noun} {orientation}.")
+        emptyOrientation = GetOrientationString(GetEmptyOrientation(GetByNoun(scene,noun)))
+        s.SetFalseString(f"{art} {noun} is {emptyOrientation}.")
+        sentences.add(s)
+        
+        # Prompt-engineer: style_picture
+        s = Sentence(["orientation", "style_picture", artTag])
+        s.SetTrueString(f"a picture of {orientation} {art} {noun}.")
+        emptyOrientation = GetOrientationString(GetEmptyOrientation(GetByNoun(scene,noun)))
+        s.SetFalseString(f"a picture of {emptyOrientation} {art} {noun}.")
+        sentences.add(s)
+        
+        # Prompt-engineer: repeat
+        s = Sentence(["orientation", "repeat", artTag])
+        s.SetTrueString(f"{art} {noun} is {orientation}.")
+        emptyOrientation = GetOrientationString(GetEmptyOrientation(GetByNoun(scene,noun)))
+        s.SetFalseString(f"{art} {noun} is {emptyOrientation}.")
+        sentences.add(s)
+    return sentences
+
 def ObjectDetection(scene):
     sentences = set()
     
     # get the set of all nouns in this scene
     unique_nouns = set()
     for obj in scene["objects"]:
+        if obj["framePos"] == 0:
+            continue
         noun = GetNoun(obj)
         unique_nouns.add(noun)
     
@@ -793,12 +922,16 @@ output = {}
 for scene in scenesData:
     file = f"image_{scene['imageID']}.png"
     output[file] = []
+    
     for s in AbsoluteFramePosition(scene):
         output[file].append(s)
     for s in RelativeFramePosition(scene):
         output[file].append(s)
     for s in RelativePlacement(scene):
         output[file].append(s)
+    for s in Orientation(scene):
+        output[file].append(s)
+    
     for s in ObjectDetection(scene):
         output[file].append(s)
 
