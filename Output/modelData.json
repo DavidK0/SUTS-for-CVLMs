@@ -1,22 +1,11 @@
 {
     "models": [
         {
-            "orientability": "full",
-            "noun": "chair",
+            "orientability": "vertical",
+            "noun": "picnic table",
             "nounIndex": 0,
             "verbs": [
                 "sit"
-            ],
-            "adjectives": [],
-            "adverbs": []
-        },
-        {
-            "orientability": "vertical",
-            "noun": "table",
-            "nounIndex": 0,
-            "verbs": [
-                "sit",
-                "stand"
             ],
             "adjectives": [
                 "wooden"
@@ -24,11 +13,15 @@
             "adverbs": []
         },
         {
-            "orientability": "full",
-            "noun": "toaster",
+            "orientability": "none",
+            "noun": "plate",
             "nounIndex": 0,
-            "verbs": [],
-            "adjectives": [],
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "white"
+            ],
             "adverbs": []
         },
         {
@@ -44,8 +37,8 @@
             "adverbs": []
         },
         {
-            "orientability": "horizontal",
-            "noun": "knife",
+            "orientability": "full",
+            "noun": "toaster",
             "nounIndex": 0,
             "verbs": [],
             "adjectives": [],
@@ -65,6 +58,28 @@
             "adverbs": []
         },
         {
+            "orientability": "horizontal",
+            "noun": "knife",
+            "nounIndex": 0,
+            "verbs": [],
+            "adjectives": [],
+            "adverbs": []
+        },
+        {
+            "orientability": "vertical",
+            "noun": "basket",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "wicker",
+                "rattan",
+                "picnic"
+            ],
+            "adverbs": []
+        },
+        {
             "orientability": "full",
             "noun": "cat",
             "nounIndex": 0,
@@ -80,6 +95,59 @@
                 "waiting",
                 "expectingly",
                 "ready"
+            ]
+        },
+        {
+            "orientability": "full",
+            "noun": "bench",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "wood"
+            ],
+            "adverbs": []
+        },
+        {
+            "orientability": "full",
+            "noun": "bicycle",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "sports"
+            ],
+            "adverbs": []
+        },
+        {
+            "orientability": "full",
+            "noun": "car",
+            "nounIndex": 0,
+            "verbs": [
+                "drive"
+            ],
+            "adjectives": [
+                "blue"
+            ],
+            "adverbs": [
+                "fast"
+            ]
+        },
+        {
+            "orientability": "full",
+            "noun": "bus",
+            "nounIndex": 0,
+            "verbs": [
+                "drive"
+            ],
+            "adjectives": [
+                "purple",
+                "passenger"
+            ],
+            "adverbs": [
+                "quickly"
             ]
         }
     ]
