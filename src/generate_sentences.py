@@ -184,15 +184,6 @@ def IsUnique(scene, noun):
 def Present3rdSG(verb):
     return f"{verb}s"
 
-# returns an expected adverb for the given verb
-def GetAdverb(verb):
-    if verb == "sit" or verb == "stand":
-        return "calmly"
-    elif verb == "is":
-        return ""
-    else:
-        assert False, f"Unknown verb \"{verb}\""
-
 # returns the list of objects from the given scene
 #   which match the given object by noun
 def GetByNoun(scene, noun):
@@ -299,6 +290,7 @@ def AbsoluteFramePosition(scene):
 
         framePos = getFramePosString(obj["framePos"])
         adjectives = model["adjectives"]
+        adverbs = model["adverbs"]
         
         if IsUnique(scene, noun):
             art = "the"
@@ -333,8 +325,7 @@ def AbsoluteFramePosition(scene):
             sentences.add(s)
             
             # Adverb (expected)
-            adverb = GetAdverb(verb)
-            if adverb != None:
+            for adverb in adverbs:
                 s = Sentence(["abs_frame_pos", "verb", "adverb", artTag])
                 s.SetTrueString(f"a {noun} {Present3rdSG(verb)} {adverb} {framePos}")
                 emptyFramePos = getFramePosString(GetEmptyFramePosition(GetByNounAndVerb(scene, noun, verb)))
@@ -409,6 +400,7 @@ def RelativeFramePosition(scene):
             
             noun       = GetNoun(obj)
             adjectives = GetAdjectives(obj)
+            adverbs = model["adverbs"]
             
             direc = GetRelString(rel)
             arg1Noun = GetNoun(scene["objects"][rel["args"][0]])
@@ -470,8 +462,7 @@ def RelativeFramePosition(scene):
                 sentences.add(s)
                 
                 # Adverb (expected)
-                adverb = GetAdverb(verb)
-                if adverb != None:
+                for adverb in adverbs:
                     s = Sentence(["rel_frame_pos", "verb", "adverb", artTag])
                     s.SetTrueString(f"a {arg1Noun} {Present3rdSG(verb)} {adverb} {direc} a {noun}")
                     emptyFrameDir = GetEmptyDir(GetByNoun(scene, noun), GetByNounAndVerb(scene, arg1Noun, verb))
@@ -596,6 +587,7 @@ def RelativePlacement(scene):
             
             noun       = GetNoun(obj)
             adjectives = GetAdjectives(obj)
+            adverbs = model["adverbs"]
             
             #direc = GetRelPlacementString(rel)
             arg1Noun = GetNoun(scene["objects"][rel["args"][0]])
@@ -606,7 +598,10 @@ def RelativePlacement(scene):
             if len(arg0verbs) == 0:
                 arg0verbs = ["is"]
             verb0 = arg0verbs[0]
-            adverb0 = GetAdverb(verb0)
+            adverb0s = models[scene["objects"][rel["args"][0]]["model"]]["adverbs"]
+            adverb0 = ""
+            if len(adverb0s) > 0:
+                adverb0 = adverb0s[0]
             
             if IsUnique(scene, noun):
                 arg0Art = "the"
@@ -671,8 +666,7 @@ def RelativePlacement(scene):
             
                 # Adverb (expected)
                 
-                adverb1 = GetAdverb(verb1)
-                if adverb1 != None:
+                for adverb1 in adverbs:
                     s = Sentence(["placement", "verb", "adverb", artTag])
                     true = GetRelativePlacementString(noun0=noun,art0=arg0Art,noun1=arg1Noun,art1=arg1Art,rel=rel,verb1=verb1,verb0=arg0verbs[0],adverb1=adverb1,adverb0=adverb0)
                     s.SetTrueString(true + ".")
@@ -767,6 +761,7 @@ def Orientation(scene):
 
         framePos = getFramePosString(obj["framePos"])
         adjectives = model["adjectives"]
+        adverbs = model["adverbs"]
         
         orientation = GetOrientationString(obj["orientation"])
 
@@ -811,8 +806,7 @@ def Orientation(scene):
             sentences.add(s)
             
             # Adverb (expected)
-            adverb = GetAdverb(verb)
-            if adverb != None:
+            for adverb in adverbs:
                 s = Sentence(["orientation", "verb", "adverb", artTag])
                 s.SetTrueString(f"{art} {noun} {Present3rdSG(verb)} {adverb} {orientation}.")
                 emptyOrientation = GetOrientationString(GetEmptyOrientation(GetByNoun(scene,noun)))
