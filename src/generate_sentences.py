@@ -11,15 +11,15 @@ if not (len(sys.argv) > 2 and os.path.isdir(sys.argv[1])):
 
 # find the important files
 modelsFile = os.path.join(sys.argv[1], "modelData.json")
-scenesFile = os.path.join(sys.argv[1], "sceneData.json")
+scenesFile = os.path.join(sys.argv[1], "scene_1_data.json")
 
 # check that the important files exist
 if not os.path.isfile(modelsFile):
     print(f"Couldn't find modelData.json at {modelsFile}")
     sys.exit()
 if not os.path.isfile(scenesFile):
-    sys.exit()
     print(f"Couldn't find sceneData.json.json at {scenesFile}")
+    sys.exit()
 
 # load the important files
 with open(modelsFile) as in_file:
@@ -120,6 +120,8 @@ def getFramePosString(framePosIndex):
         return "on the bottom"
     elif framePosIndex == 9:
         return "at the bottom right"
+    elif framePosIndex == 10:
+        return "in frame"
     else:
         assert False, f"Unknown frame position index \"{framePosIndex}\""
 
@@ -280,7 +282,7 @@ def AbsoluteFramePosition(scene):
     sentences = set()
     
     for obj in scene["objects"]:
-        if obj["framePos"] == 0:
+        if obj["framePos"] == 0 or obj["framePos"] == 10:
             continue
         #print(obj)
         
@@ -362,9 +364,9 @@ def AbsoluteFramePosition(scene):
         
         # Prompt-engineer: style_render
         s = Sentence(["abs_frame_pos", "style_render", artTag])
-        s.SetTrueString(f"a 3D render of a {noun} is {framePos}.")
+        s.SetTrueString(f"a 3D render of a {noun} {framePos}.")
         emptyFramePos = getFramePosString(GetEmptyFramePosition(GetByNoun(scene, noun)))
-        s.SetFalseString(f"a 3D render of a {noun} is {emptyFramePos}.")
+        s.SetFalseString(f"a 3D render of a {noun} {emptyFramePos}.")
         sentences.add(s)
         
         # Prompt-engineer: style_picture
@@ -850,9 +852,9 @@ def Orientation(scene):
         
         # Prompt-engineer: style_picture
         s = Sentence(["orientation", "style_picture", artTag])
-        s.SetTrueString(f"a picture of {orientation} {art} {noun}.")
+        s.SetTrueString(f"a picture of {art} {orientation} {noun}.")
         emptyOrientation = GetOrientationString(GetEmptyOrientation(GetByNoun(scene,noun)))
-        s.SetFalseString(f"a picture of {emptyOrientation} {art} {noun}.")
+        s.SetFalseString(f"a picture of {art} {emptyOrientation} {noun}.")
         sentences.add(s)
         
         # Prompt-engineer: repeat
