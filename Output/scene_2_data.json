@@ -1,0 +1,2673 @@
+{
+    "scenes": [
+        {
+            "objects": [
+                {
+                    "framePos": 2,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 2,
+                    "index": 1,
+                    "model": "toaster_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_back",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                5
+                            ]
+                        },
+                        {
+                            "type": "grv_down",
+                            "args": [
+                                5
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 2,
+                    "index": 2,
+                    "model": "toaster_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                5
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 2,
+                    "index": 3,
+                    "model": "jar_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 4,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 5,
+                    "model": "toaster_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 0,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 5,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 1,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 2,
+                    "model": "plate_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 1,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 10,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 1,
+                    "model": "jar_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 2,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 2,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 10,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 8,
+                    "index": 1,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "grv_down",
+                            "args": [
+                                0
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 8,
+                    "index": 2,
+                    "model": "jar_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 8,
+                    "index": 3,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 8,
+                    "index": 4,
+                    "model": "plate_0",
+                    "properties": [],
+                    "relations": [],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 8,
+                    "index": 5,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 3,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 5,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 1,
+                    "model": "jar_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                3
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 2,
+                    "model": "jar_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 3,
+                    "model": "basket_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "upsidedown"
+                },
+                {
+                    "framePos": 5,
+                    "index": 4,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 4,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 10,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 1,
+                    "model": "plate_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                5
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 2,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 3,
+                    "model": "jar_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                5
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 4,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_forward",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "grv_down",
+                            "args": [
+                                0
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 5,
+                    "model": "toaster_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "rel_forward",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "rel_forward",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 5,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 10,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 1,
+                    "model": "cat_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                5
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                6
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "grv_down",
+                            "args": [
+                                6
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 2,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "upsidedown"
+                },
+                {
+                    "framePos": 5,
+                    "index": 3,
+                    "model": "plate_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                5
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 4,
+                    "model": "jar_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                5
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 5,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 6,
+                    "model": "jar_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 6,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 10,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 1,
+                    "model": "basket_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "grv_down",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 2,
+                    "index": 2,
+                    "model": "plate_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 2,
+                    "index": 3,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 2,
+                    "index": 4,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 2,
+                    "index": 5,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                0
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 7,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 10,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 1,
+                    "model": "plate_0",
+                    "properties": [],
+                    "relations": [],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 2,
+                    "model": "basket_0",
+                    "properties": [],
+                    "relations": [],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 3,
+                    "model": "cat_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 4,
+                    "model": "toaster_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "upsidedown"
+                }
+            ],
+            "imageID": 8,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 10,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 1,
+                    "model": "cat_0",
+                    "properties": [],
+                    "relations": [],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 2,
+                    "model": "basket_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                5
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 3,
+                    "model": "basket_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 4,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                5
+                            ]
+                        }
+                    ],
+                    "orientation": "sideways"
+                },
+                {
+                    "framePos": 10,
+                    "index": 5,
+                    "model": "cat_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_right",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 9,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 5,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 1,
+                    "model": "basket_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 2,
+                    "model": "jar_0",
+                    "properties": [],
+                    "relations": [],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 3,
+                    "model": "cat_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_right",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 4,
+                    "model": "plate_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                0
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 10,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 10,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                3
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 1,
+                    "model": "jar_0",
+                    "properties": [],
+                    "relations": [],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 2,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_forward",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "rel_forward",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "rel_forward",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "rel_forward",
+                            "args": [
+                                6
+                            ]
+                        },
+                        {
+                            "type": "rel_forward",
+                            "args": [
+                                5
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 3,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                6
+                            ]
+                        }
+                    ],
+                    "orientation": "sideways"
+                },
+                {
+                    "framePos": 5,
+                    "index": 4,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                5
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 5,
+                    "model": "toaster_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_right",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                6
+                            ]
+                        }
+                    ],
+                    "orientation": "upsidedown"
+                },
+                {
+                    "framePos": 10,
+                    "index": 6,
+                    "model": "basket_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                5
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 11,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 10,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "grv_down",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "grv_down",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 1,
+                    "model": "cat_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                5
+                            ]
+                        }
+                    ],
+                    "orientation": "upsidedown"
+                },
+                {
+                    "framePos": 2,
+                    "index": 2,
+                    "model": "plate_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "upsidedown"
+                },
+                {
+                    "framePos": 2,
+                    "index": 3,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 4,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 2,
+                    "index": 5,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "grv_down",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 12,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 10,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 1,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 2,
+                    "model": "plate_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                3
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 3,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                6
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 4,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 5,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                6
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                3
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 6,
+                    "model": "toaster_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_back",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 13,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 10,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 2,
+                    "index": 1,
+                    "model": "cat_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 2,
+                    "model": "plate_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 14,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 10,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                3
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 1,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 2,
+                    "model": "toaster_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_right",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "rel_right",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                5
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                6
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "grv_down",
+                            "args": [
+                                5
+                            ]
+                        },
+                        {
+                            "type": "grv_down",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 3,
+                    "model": "toaster_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_back",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                6
+                            ]
+                        },
+                        {
+                            "type": "grv_down",
+                            "args": [
+                                5
+                            ]
+                        },
+                        {
+                            "type": "grv_down",
+                            "args": [
+                                6
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 8,
+                    "index": 4,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                5
+                            ]
+                        },
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 5,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 6,
+                    "model": "basket_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "upsidedown"
+                }
+            ],
+            "imageID": 15,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 10,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 2,
+                    "index": 1,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 2,
+                    "model": "toaster_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_right",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 3,
+                    "model": "basket_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 16,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 10,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 1,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 2,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 3,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 4,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_forward",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "grv_down",
+                            "args": [
+                                0
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 17,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 10,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 1,
+                    "model": "basket_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                3
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 2,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_forward",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                3
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 10,
+                    "index": 3,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 18,
+            "sceneIndex": 2
+        },
+        {
+            "objects": [
+                {
+                    "framePos": 5,
+                    "index": 0,
+                    "model": "picnic table_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "grv_up",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 1,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                2
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 2,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 3,
+                    "model": "baseball_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_up",
+                            "args": [
+                                4
+                            ]
+                        }
+                    ],
+                    "orientation": "upsidedown"
+                },
+                {
+                    "framePos": 5,
+                    "index": 4,
+                    "model": "jar_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_down",
+                            "args": [
+                                5
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                1
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 5,
+                    "model": "toaster_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_back",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "rel_back",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                6
+                            ]
+                        },
+                        {
+                            "type": "rel_back",
+                            "args": [
+                                1
+                            ]
+                        },
+                        {
+                            "type": "rel_back",
+                            "args": [
+                                2
+                            ]
+                        },
+                        {
+                            "type": "abs_right",
+                            "args": [
+                                0
+                            ]
+                        },
+                        {
+                            "type": "grv_down",
+                            "args": [
+                                3
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                },
+                {
+                    "framePos": 5,
+                    "index": 6,
+                    "model": "knife_0",
+                    "properties": [],
+                    "relations": [
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                4
+                            ]
+                        },
+                        {
+                            "type": "rel_left",
+                            "args": [
+                                5
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                3
+                            ]
+                        },
+                        {
+                            "type": "abs_left",
+                            "args": [
+                                5
+                            ]
+                        }
+                    ],
+                    "orientation": "normal"
+                }
+            ],
+            "imageID": 19,
+            "sceneIndex": 2
+        }
+    ]
+}

@@ -14,38 +14,6 @@
         },
         {
             "orientability": "none",
-            "noun": "plate",
-            "nounIndex": 0,
-            "verbs": [
-                "sit"
-            ],
-            "adjectives": [
-                "white"
-            ],
-            "adverbs": []
-        },
-        {
-            "orientability": "vertical",
-            "noun": "jar",
-            "nounIndex": 0,
-            "verbs": [
-                "sit"
-            ],
-            "adjectives": [
-                "green"
-            ],
-            "adverbs": []
-        },
-        {
-            "orientability": "full",
-            "noun": "toaster",
-            "nounIndex": 0,
-            "verbs": [],
-            "adjectives": [],
-            "adverbs": []
-        },
-        {
-            "orientability": "none",
             "noun": "baseball",
             "nounIndex": 0,
             "verbs": [
@@ -58,8 +26,20 @@
             "adverbs": []
         },
         {
-            "orientability": "horizontal",
-            "noun": "knife",
+            "orientability": "none",
+            "noun": "plate",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "white"
+            ],
+            "adverbs": []
+        },
+        {
+            "orientability": "full",
+            "noun": "toaster",
             "nounIndex": 0,
             "verbs": [],
             "adjectives": [],
@@ -76,6 +56,26 @@
                 "wicker",
                 "rattan",
                 "picnic"
+            ],
+            "adverbs": []
+        },
+        {
+            "orientability": "horizontal",
+            "noun": "knife",
+            "nounIndex": 0,
+            "verbs": [],
+            "adjectives": [],
+            "adverbs": []
+        },
+        {
+            "orientability": "vertical",
+            "noun": "jar",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "green"
             ],
             "adverbs": []
         },
@@ -99,18 +99,6 @@
         },
         {
             "orientability": "full",
-            "noun": "bench",
-            "nounIndex": 0,
-            "verbs": [
-                "sit"
-            ],
-            "adjectives": [
-                "wood"
-            ],
-            "adverbs": []
-        },
-        {
-            "orientability": "full",
             "noun": "bicycle",
             "nounIndex": 0,
             "verbs": [
@@ -120,6 +108,21 @@
                 "sports"
             ],
             "adverbs": []
+        },
+        {
+            "orientability": "full",
+            "noun": "bus",
+            "nounIndex": 0,
+            "verbs": [
+                "drive"
+            ],
+            "adjectives": [
+                "purple",
+                "passenger"
+            ],
+            "adverbs": [
+                "quickly"
+            ]
         },
         {
             "orientability": "full",
@@ -137,18 +140,15 @@
         },
         {
             "orientability": "full",
-            "noun": "bus",
+            "noun": "bench",
             "nounIndex": 0,
             "verbs": [
-                "drive"
+                "sit"
             ],
             "adjectives": [
-                "purple",
-                "passenger"
+                "wood"
             ],
-            "adverbs": [
-                "quickly"
-            ]
+            "adverbs": []
         }
     ]
 }
