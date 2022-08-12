@@ -3,7 +3,7 @@
         {
             "orientability": "vertical",
             "noun": "table",
-            "nounIndex": 0,
+            "nounIndex": 1,
             "verbs": [
                 "sit"
             ],
@@ -25,6 +25,18 @@
             "adverbs": []
         },
         {
+            "orientability": "none",
+            "noun": "plate",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "white"
+            ],
+            "adverbs": []
+        },
+        {
             "orientability": "vertical",
             "noun": "basket",
             "nounIndex": 0,
@@ -35,6 +47,30 @@
                 "wicker",
                 "rattan",
                 "picnic"
+            ],
+            "adverbs": []
+        },
+        {
+            "orientability": "full",
+            "noun": "toaster",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "red"
+            ],
+            "adverbs": []
+        },
+        {
+            "orientability": "none",
+            "noun": "knife",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "sharp"
             ],
             "adverbs": []
         },
@@ -52,51 +88,14 @@
             "adverbs": []
         },
         {
-            "orientability": "none",
-            "noun": "plate",
-            "nounIndex": 0,
-            "verbs": [
-                "sit"
-            ],
-            "adjectives": [
-                "white"
-            ],
-            "adverbs": []
-        },
-        {
-            "orientability": "none",
-            "noun": "knife",
-            "nounIndex": 0,
-            "verbs": [
-                "sit"
-            ],
-            "adjectives": [
-                "sharp"
-            ],
-            "adverbs": []
-        },
-        {
-            "orientability": "horizontal",
-            "noun": "torpedo",
-            "nounIndex": 0,
-            "verbs": [
-                "sit"
-            ],
-            "adjectives": [
-                "metal",
-                "long"
-            ],
-            "adverbs": []
-        },
-        {
             "orientability": "full",
-            "noun": "toaster",
+            "noun": "laptop",
             "nounIndex": 0,
             "verbs": [
                 "sit"
             ],
             "adjectives": [
-                "red"
+                "affordable"
             ],
             "adverbs": []
         },
@@ -117,16 +116,58 @@
             ]
         },
         {
-            "orientability": "full",
-            "noun": "bicycle",
+            "orientability": "horizontal",
+            "noun": "torpedo",
             "nounIndex": 0,
             "verbs": [
                 "sit"
             ],
             "adjectives": [
-                "sports"
+                "metal",
+                "long"
             ],
             "adverbs": []
+        },
+        {
+            "orientability": "vertical",
+            "noun": "lamp",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "yellow",
+                "monochrome"
+            ],
+            "adverbs": []
+        },
+        {
+            "orientability": "vertical",
+            "noun": "cactus",
+            "nounIndex": 0,
+            "verbs": [
+                "sit",
+                "grow"
+            ],
+            "adjectives": [
+                "green",
+                "small"
+            ],
+            "adverbs": []
+        },
+        {
+            "orientability": "full",
+            "noun": "swan",
+            "nounIndex": 0,
+            "verbs": [
+                "stand"
+            ],
+            "adjectives": [
+                "white"
+            ],
+            "adverbs": [
+                "calmly"
+            ]
         },
         {
             "orientability": "full",
@@ -182,6 +223,32 @@
             ],
             "adverbs": [
                 "quickly"
+            ]
+        },
+        {
+            "orientability": "full",
+            "noun": "bicycle",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "sports"
+            ],
+            "adverbs": []
+        },
+        {
+            "orientability": "full",
+            "noun": "person",
+            "nounIndex": 0,
+            "verbs": [
+                "stand"
+            ],
+            "adjectives": [
+                "army"
+            ],
+            "adverbs": [
+                "still"
             ]
         }
     ]
