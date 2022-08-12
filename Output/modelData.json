@@ -2,13 +2,39 @@
     "models": [
         {
             "orientability": "vertical",
-            "noun": "picnic table",
+            "noun": "table",
             "nounIndex": 0,
             "verbs": [
                 "sit"
             ],
             "adjectives": [
-                "wooden"
+                "picnic"
+            ],
+            "adverbs": []
+        },
+        {
+            "orientability": "vertical",
+            "noun": "jar",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "green"
+            ],
+            "adverbs": []
+        },
+        {
+            "orientability": "vertical",
+            "noun": "basket",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "wicker",
+                "rattan",
+                "picnic"
             ],
             "adverbs": []
         },
@@ -38,44 +64,39 @@
             "adverbs": []
         },
         {
-            "orientability": "full",
-            "noun": "toaster",
-            "nounIndex": 0,
-            "verbs": [],
-            "adjectives": [],
-            "adverbs": []
-        },
-        {
-            "orientability": "vertical",
-            "noun": "basket",
+            "orientability": "none",
+            "noun": "knife",
             "nounIndex": 0,
             "verbs": [
                 "sit"
             ],
             "adjectives": [
-                "wicker",
-                "rattan",
-                "picnic"
+                "sharp"
             ],
             "adverbs": []
         },
         {
             "orientability": "horizontal",
-            "noun": "knife",
-            "nounIndex": 0,
-            "verbs": [],
-            "adjectives": [],
-            "adverbs": []
-        },
-        {
-            "orientability": "vertical",
-            "noun": "jar",
+            "noun": "torpedo",
             "nounIndex": 0,
             "verbs": [
                 "sit"
             ],
             "adjectives": [
-                "green"
+                "metal",
+                "long"
+            ],
+            "adverbs": []
+        },
+        {
+            "orientability": "full",
+            "noun": "toaster",
+            "nounIndex": 0,
+            "verbs": [
+                "sit"
+            ],
+            "adjectives": [
+                "red"
             ],
             "adverbs": []
         },
@@ -83,18 +104,16 @@
             "orientability": "full",
             "noun": "cat",
             "nounIndex": 0,
-            "verbs": [],
+            "verbs": [
+                "stand",
+                "stare"
+            ],
             "adjectives": [
                 "orange"
             ],
             "adverbs": [
                 "calmly",
-                "stoically",
-                "still",
-                "patiently",
-                "waiting",
-                "expectingly",
-                "ready"
+                "patiently"
             ]
         },
         {
@@ -108,21 +127,6 @@
                 "sports"
             ],
             "adverbs": []
-        },
-        {
-            "orientability": "full",
-            "noun": "bus",
-            "nounIndex": 0,
-            "verbs": [
-                "drive"
-            ],
-            "adjectives": [
-                "purple",
-                "passenger"
-            ],
-            "adverbs": [
-                "quickly"
-            ]
         },
         {
             "orientability": "full",
@@ -146,9 +150,39 @@
                 "sit"
             ],
             "adjectives": [
-                "wood"
+                "wood",
+                "park"
             ],
             "adverbs": []
+        },
+        {
+            "orientability": "full",
+            "noun": "bus",
+            "nounIndex": 0,
+            "verbs": [
+                "drive"
+            ],
+            "adjectives": [
+                "purple",
+                "passenger"
+            ],
+            "adverbs": [
+                "quickly"
+            ]
+        },
+        {
+            "orientability": "full",
+            "noun": "horse",
+            "nounIndex": 0,
+            "verbs": [
+                "walk"
+            ],
+            "adjectives": [
+                "brown"
+            ],
+            "adverbs": [
+                "quickly"
+            ]
         }
     ]
 }
