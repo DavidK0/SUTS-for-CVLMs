@@ -2,6 +2,9 @@
 
 import argparse, os, sys, json
 
+from datetime import datetime
+start_time = datetime.now()
+
 parser = argparse.ArgumentParser(description='Runs CLIP')
 parser.add_argument("input_file",type=str, help="A .txt containing the sentences")
 parser.add_argument("images_dir",type=str, help="The directory containing the images")
@@ -45,6 +48,8 @@ model, preprocess = clip.load(model_name, device=device) # load the model
 
 # load the sentences
 scenes = {}
+import random
+
 curr_image = ""
 with open(args.input_file) as in_file:
     scenes = json.load(in_file)
@@ -55,13 +60,19 @@ for image_name, sentences in scenes.items():
     total_sentences += len(sentences)
 #print("Total scentences: " + total_sentences)
 
+times = []
+
 # MAIN LOOP
 sentence_counter = 0
 correct = 0
+rate = .2
+total_sentences = total_sentences * rate
 for image_name, sentences in scenes.items():
     image_file = os.path.join(args.images_dir, image_name)
     image_input = preprocess(Image.open(image_file)).unsqueeze(0).to(device)
     for sentence in sentences:
+        if random.random() > rate:
+            continue
         # Prepare the inputs
         true_text = clip.tokenize(sentence["true"])
         false_text = clip.tokenize(sentence["false"])
@@ -99,7 +110,17 @@ for image_name, sentences in scenes.items():
         sentence_counter += 1
         progress = sentence_counter/total_sentences
         accuracy = correct/sentence_counter
-        print(f"Progress: {progress:.1%}\tAccuracy: {accuracy:.1%}",end="\r")
+        
+        times.append(datetime.now())
+        if len(times) > 200:
+            del times[0]
+        now_time = times[0]
+        diff_time = now_time - start_time
+        ave_time = diff_time / sentence_counter
+        remaining_sents = total_sentences - sentence_counter
+        remaining_time = remaining_sents * ave_time
+        
+        print(f"Progress: {progress:.1%}\tAccuracy: {accuracy:.1%}, ETA: {now_time + remaining_time}",end="\r")
 
 print()
 
