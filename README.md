@@ -8,3 +8,5 @@ The two steps to creating this data set were:
 * Sentence Generation: From the spatial relation metadata associated with the images made in the previous step, I use python to generate a set of true and false sentences.
 
 I tested CLIP's performance on this test suite, and it performed very poorly, at or worse than random guessing.
+
+More information about this test suite can be found at the [the wiki.](../../wiki)
